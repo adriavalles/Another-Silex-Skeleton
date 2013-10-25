@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>{% block title '' %} - My Silex Application</title>
+
+		<link href="{{ app.request.basepath }}/css/main.css" rel="stylesheet" type="text/css"/>
+
+	</head>
+	<body>
+		{% block content %}{% endblock %}
+	</body>
+</html>
