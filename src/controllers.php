@@ -22,4 +22,4 @@ $app['myapplication.controllers.home'] = $app->share( function () use ( $app )
 /**
  * Routes definition.
  */
-$app->get( '/{who}', 'myapplication.controllers.home:homeAction' )->value( 'who', 'world' )->bind( 'home' );
+$app->get( '/{who}', 'myapplication.controllers.home:homeAction' )->value( 'who', 'world' )->assert( 'who', '[a-zA-Z0-9]+' )->bind( 'home' );
