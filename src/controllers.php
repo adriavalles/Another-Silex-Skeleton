@@ -16,7 +16,7 @@ $app->error( function ( \Exception $e, $code ) use ( $app )
  */
 $app['myapplication.controllers.home'] = $app->share( function () use ( $app )
 {
-	return new Controllers\Home( $app['twig'] );
+	return new Controllers\Home( $app['twig'], $app['myapplication.welcome.messages'] );
 } );
 
 /**

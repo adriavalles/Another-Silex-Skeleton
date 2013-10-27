@@ -2,6 +2,8 @@
 
 namespace MyApplication\Controllers;
 
+use MyApplication\Services\WelcomeMessages;
+
 class Home
 {
 	/**
@@ -12,13 +14,22 @@ class Home
 	private $template_engine;
 
 	/**
+	 * Welcome messages service.
+	 *
+	 * @var WelcomeMessages
+	 */
+	private $welcome_messages;
+
+	/**
 	 * Builds class with its dependencies.
 	 *
 	 * @param \Twig_Environment $template_engine Used to render our views.
+	 * @param WelcomeMessages $welcome_messages Service to get welcome messages.
 	 */
-	public function __construct( \Twig_Environment $template_engine )
+	public function __construct( \Twig_Environment $template_engine, WelcomeMessages $welcome_messages )
 	{
 		$this->template_engine = $template_engine;
+		$this->welcome_messages = $welcome_messages;
 	}
 
 
@@ -30,6 +41,7 @@ class Home
 	 */
 	public function homeAction( $who )
 	{
-		return $this->template_engine->render( 'index.twig', array( 'who' => $who ) );
+		$hello = $this->welcome_messages->getRandomMessage();
+		return $this->template_engine->render( 'index.twig', array( 'hello' => $hello, 'who' => $who ) );
 	}
 }
