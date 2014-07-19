@@ -1,0 +1,6 @@
+{
+	"name": "MyApplication",
+	"dependencies": {
+		"jQuery": "~2.1"
+	}
+}
