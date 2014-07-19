@@ -13,7 +13,7 @@ $app->register(new UrlGeneratorServiceProvider());
 $app->register(new ValidatorServiceProvider());
 $app->register(new ServiceControllerServiceProvider());
 $app->register(new TwigServiceProvider(), array(
-    'twig.path'    => array(__DIR__ . '/../src/MyApplication/templates'),
+    'twig.path'    => array(__DIR__ . '/../templates'),
     'twig.options' => array('cache' => __DIR__ . '/../var/cache/twig'),
 ));
 
